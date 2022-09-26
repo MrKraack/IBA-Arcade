@@ -1,0 +1,28 @@
+.wrapper{
+    display: grid;
+    grid-template-columns: repeat(5, 0fr);
+    gap: 0px 0px;
+}
+.gridCell{
+    background: white;
+    border: 2px solid black;
+    width: 15vmax;
+    height: 50px;
+}
+.gridCell:hover{
+    background: gray;
+}
+/* Cells that are off */
+.gridCell.lightOff{
+    background: red;
+}
+.gridCell.lightOff:hover{
+    background: darkred;
+}
+/* Cells that are turned on */
+.gridCell.lightOn{
+    background: purple;
+}
+.gridCell.lightOn:hover{
+    background: darkviolet;
+}
