@@ -52,8 +52,8 @@ h1 {
     background: white;
     height: 50px;
     width: 50px;
-    border-radius: 100%;
-    margin: 0px 20px;
+    /*border-radius: 100%; */
+    margin: 0px 15px;
 }
 
 .boxDiv {
@@ -67,4 +67,8 @@ h1 {
     padding: 50px 50px;
     box-shadow: 1px 1px 14px 0px rgba(0,0,0,0.25);
     background-color: #253b61;
+}
+
+.removeBtnPlayer {
+    display: none;
 }
