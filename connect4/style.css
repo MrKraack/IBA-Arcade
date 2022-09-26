@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    background-color: #152238;
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    padding-bottom: 15px; 
+    font-size: 48px;
+}
+
+.nameInput {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px;
+}
+
+.nameInput > * {
+    margin-top: 5px;
+}
+
+.container {
+    margin: 25px;
+    padding: 25px;
+    border: 10px solid white;
+    
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+}
+
+.startGame-btn {
+    padding: 10px;
+    border-radius: 0;
+}
+
+.slot {
+    background: white;
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    margin: 0px 20px;
+}
+
+.boxDiv {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 500px;
+    width: 700px;
+    padding: 50px 50px;
+    box-shadow: 1px 1px 14px 0px rgba(0,0,0,0.25);
+    background-color: #253b61;
+}
