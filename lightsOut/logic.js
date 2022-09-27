@@ -25,10 +25,8 @@ function createLightObjects() {
     
     //Append every cell to div "lightContainer"
     for (let i = 0; i < gridArray.length; i++) {
-        //Create div for light cell
+        //Create btn for light cell
         let tempCell = document.createElement("button");
-        //Add event listener to cell and call checkLight on click
-        // tempCell.addEventListener(`click`,checkliight)
         //Give the div x and y coordinates
         tempCell.setAttribute("x",gridArray[i].x);
         tempCell.setAttribute("y",gridArray[i].y);
@@ -37,7 +35,7 @@ function createLightObjects() {
         //Give the div an ID
         tempCell.setAttribute("id", `lightCell${i+1}`);
         
-        //add cell to div
+        //add classname to div
         gridDiv.appendChild(tempCell).className=`gridCell`;        
     }
     // console.log(gridArray);
@@ -63,26 +61,65 @@ function generateLightPattern() {
         }
     }
 }
+
 function checkLight(clicked_id){
-    // console.log(clicked_id);
+    console.log(clicked_id);
     //get current object
+
     let tempCellObject = document.getElementById(clicked_id);
     //Checks lights 
     if (tempCellObject.className == "gridCell lightOn") {
-        
-        tempCellObject.className = "gridCell lightOff";
 
+        tempCellObject.className = "gridCell lightOff";
         
     }else{
-        tempCellObject.className = "gridCell lightOn";
-        
+        tempCellObject.className = "gridCell lightOn";        
     }
+
+    
     console.log(tempCellObject);
     
+    //Check adjacent tiles
+
+    let tempXCell = Number(tempCellObject.getAttribute("x"));
+    let tempYCell = Number(tempCellObject.getAttribute("y"));
+
+    console.log(tempXCell+1);
+
+    checkRight(tempXCell,tempYCell);
+
+    
+    //Check x++ y++
+    // if (tempCellObject.attributes) {
+        
+        
+        // }
+        //check x-- y--
+        
+        //Check x--
+        
+        //Check x++
+        
+    }
+    function checkRight (fooXCell,fooYCell) {
+        tempRightXCell = ++fooXCell;
+        tempRightYCell = fooYCell;
+        // tempRightCell = document.getElementsByClassName(`x=${tempRightXCell}`);
+        // tempCeell = document.querySelector(`[x='${tempRightXCell}',y='${tempRightYCell}']`);
+
+        //Check array for the object
+        console.log(gridArray.includes(`x=${tempRightXCell}`));
+        
+        
+
+        // console.log(`This is ${tempRightCell.className}`);
+        // console.log(`This is ${tempCeell.className}`);
+        // if (tempRightCell.className) {
+            
+        // }
+    }
 
 
-
-}
 
 //4. Check if light and nearby 4 lights are on or off
 
@@ -93,3 +130,4 @@ function checkLight(clicked_id){
 //When a field is clicked, the 4 squares next to it turns on/off
 //When all lights are off, the player has won
 //Score system = How many clicks and how long it took
+

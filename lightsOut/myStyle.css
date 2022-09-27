@@ -1,12 +1,14 @@
 .wrapper{
     display: grid;
-    grid-template-columns: repeat(5, 0fr);
+    justify-content: center;
+    justify-items: center;
+    grid-template-columns: repeat(5, 100px);
     gap: 0px 0px;
 }
 .gridCell{
     background: white;
     border: 2px solid black;
-    width: 15vmax;
+    width: 100px;
     height: 50px;
 }
 .gridCell:hover{
