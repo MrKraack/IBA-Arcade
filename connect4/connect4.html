@@ -8,30 +8,32 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="container">
-    <h1>Welcome to Connect 4!</h1>
+<div class="container" id="container">
+    <h1>Connect 4</h1>
     <div id="preStart">
     <form class="nameInput" id="nameInput">
-
-        <div class="player1">
-        <label style="color: red" for="name1">Player 1's name: </label>
-        <input type="text" id="name1">
+        <div>
+            <label style="color: rgb(255, 58, 58); font-size: 20px" for="name1">Player 1's Name: </label>
+            <input type="text" id="name1">
         </div>
-
-        <div class="player2">
-            <label style="color: yellow" for="name1">Player 2's name: </label>
+        <div>
+            <label style="color: rgb(255, 255, 71); font-size: 20px" for="name1">Player 2's Name: </label>
             <input type="text" id="name2">
-            </div>
-
-        </form>
+        </div>
+    </form>
         <div class="btn">
-            <button onclick="startGame()" type="button" id="startGameBtn" class="startGame-btn">Start game!</button>
+            <button type="button" id="startGameBtn" class="startGame-btn">Start game!</button>
         </div>
     </div>
     <div id="connect-container" class="connect-container"></div>
-    <p class="timer" id="timer"></p>
-    <p class="turns" id="turns"></p>
+        
 </div>
+<div class="winnerContainer" id="winnerContainer">
+        <h2 id="winner"></h2>
+        <button type="button" id="restart">Play again!</button>
+    </div>
+    <p class="timer" id="timer"></p>
+        <p class="turns" id="turns"></p>
 <script src="app.js"></script>
 </body>
 </html>
