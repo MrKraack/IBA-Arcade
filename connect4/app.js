@@ -196,6 +196,8 @@ function startGame() {
     let restart = document.getElementById("restart");
     // Et loop der kører igennem og definerer nogle konstanter som vi bruger til at finde ud af om spilleren har vundet
     for (let y = 0; y < solutions.length; y++) {
+      // Loopet kører igennem og tjekker alle solutions i et "array-objekt (altså det array, der indeholder alle løsninger)" ad gangen (hele tiden). For eksempel. Hvis boardet siger "[0, 1, 2, 3]", og hvis det er "rød", der har "optaget" alle de pladser, så vil spilleren vinde.
+      // Funktionen kører hver gang der bliver placeret en brik.
       const slot1 = slots[solutions[y][0]];
       const slot2 = slots[solutions[y][1]];
       const slot3 = slots[solutions[y][2]];
@@ -251,6 +253,7 @@ function startGame() {
         timer.innerHTML = `Final Time: ${hours} hour(s) ${minutes} minute(s) ${seconds - 1} second(s)`;
       },2000)
     }
+        // Restart knap der reloader hjemmesiden
         restart.addEventListener("click", () => {
         window.location.reload();
     })
