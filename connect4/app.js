@@ -209,6 +209,10 @@ function startGame() {
         slot4.classList.contains('red')
       )
       {
+        slot1.classList.add("blinkAnim")
+        slot2.classList.add("blinkAnim")
+        slot3.classList.add("blinkAnim")
+        slot4.classList.add("blinkAnim")
         gameRunning = false;
         // Pausen funktionen så den ikke kører det absolut samme sekund man vinder på så man lige kan se boardet (virker ikke super godt)
         // Stopper timeren
@@ -230,6 +234,10 @@ function startGame() {
         slot4.classList.contains('yellow')
       )
       {
+        slot1.classList.add("blinkAnim")
+        slot2.classList.add("blinkAnim")
+        slot3.classList.add("blinkAnim")
+        slot4.classList.add("blinkAnim")
         gameRunning = false;
         // Stopper timeren
         timerIsRunning = false;
