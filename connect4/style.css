@@ -148,6 +148,7 @@ button {
 }
 
 .turns {
+    font-size: 20px;
     color: white;
     text-align: center;
 }
@@ -170,7 +171,7 @@ button {
 
 
 h2 {
-    font-size: 46px;
+    font-size: 30px;
     text-align: center;
     display: none;
     color: white;
