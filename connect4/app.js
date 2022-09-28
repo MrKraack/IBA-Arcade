@@ -147,18 +147,24 @@ function startGame() {
     slots = document.querySelectorAll('.slot, .taken');
     slots.forEach((slot, i) => {
       slot.addEventListener("click", () => {
-        if (slot.classList.contains("red") || slot.classList.contains("yellow")) {
-          alert("Space is already occupied!")
+        if (slot.classList.contains("taken")) {
+          connectContainer.classList.remove("error")
+          // offsetWidth bliver brugt som et slags "buffer", så koden ikke bliver udføret instantly (async?)
+          connectContainer.offsetWidth;
+          connectContainer.classList.add("error")
           return;
         }
+        
     // Grunden til at vi har de usynlige brikker i starten er nemlig derfor. Hvis vi ikke havde dem, vil vi aldrig kunne starte spillet, da de usynlige brikker har classen taken og derfor giver os mulighed for at smide vores brikker ind på brættet.
     // Hvis selve "i + 7 (fordi der er 7 felter på hver kolonne)" (det felt vi klikker på) har classen "taken", og hvis "i" ikke har den, så kører koden. Altså, hvis vores "felt" er "taken", så vi vil vi kun kunne placere en brik over det felt, der er taken.
         if (slots[i + 7].classList.contains('taken') &&!slots[i].classList.contains('taken')) {
         let color;
+        // Spiller 1
         if (player === 1) {
           player = 2;
           color = "red";
         }
+        // Spiller 2
         else {
           player = 1;
           color = "yellow";
@@ -169,7 +175,10 @@ function startGame() {
         winner();
       }
       else {
-        alert("You can't place that here!")
+        connectContainer.classList.remove("error")
+        // offsetWidth bliver brugt som et slags "buffer", så koden ikke bliver udføret instantly (async?)
+        connectContainer.offsetWidth;
+        connectContainer.classList.add("error")
       }
     })
   })
@@ -195,7 +204,7 @@ function startGame() {
         slot4.classList.contains('red')
       )
       {
-        // Pausen funktionen så den ikke kører det absolut samme sekund man vinder på så man lige kan se boardet
+        // Pausen funktionen så den ikke kører det absolut samme sekund man vinder på så man lige kan se boardet (virker ikke super godt)
         setTimeout(() => {
         winnerContainer.style.display = "flex";
         winnerContainer.classList.add("fade");
@@ -205,7 +214,7 @@ function startGame() {
         // Stopper timeren
         timerIsRunning = false;
         timer.innerHTML = `The game finished in: ${hours} hour(s) ${minutes} minute(s) ${seconds} second(s)`;
-      },800)}
+      },1000)}
       // Tjek om "gul" har vundet
       if (
         slot1.classList.contains('yellow') &&
@@ -223,7 +232,7 @@ function startGame() {
         // Stopper timeren
         timerIsRunning = false;
         timer.innerHTML = `Final Time: ${hours} hour(s) ${minutes} minute(s) ${seconds} second(s)`;
-      },800)}
+      },1000)}
       restart.addEventListener("click", () => {
         window.location.reload();
     })
