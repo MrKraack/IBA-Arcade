@@ -3,6 +3,8 @@ let connect = document.getElementById("connect-container");
 let startGameBtn = document.getElementById("startGameBtn");
 let turnsText = document.getElementById("turns");
 
+let gameRunning = false;
+
 // Jeg bruger det her variabel til at finde ud af hvilken spillers tur det er. "1" er spiller og "2" er spiller 2
 let player = 1;
 
@@ -90,6 +92,7 @@ const solutions = [
 
 // Funktionen der starter hele spillet
 function startGame() {
+  gameRunning = true;
   let name1 = document.getElementById("name1").value;
   let name2 = document.getElementById("name2").value;
   if (name1 === "" || name2 === "") {
@@ -105,7 +108,7 @@ function startGame() {
     // Funktionen der starter stopuret
     function stopWatch() {
       // Det her bruger jeg til at kunne stoppe timeren
-      if (timerIsRunning == true) {
+      if (timerIsRunning === true) {
       timer.innerHTML = `${hours} hour(s) ${minutes} minute(s) ${seconds} second(s)`;
       seconds++;
       if (seconds >= 60) {
@@ -147,6 +150,9 @@ function startGame() {
     slots = document.querySelectorAll('.slot, .taken');
     slots.forEach((slot, i) => {
       slot.addEventListener("click", () => {
+        if (gameRunning === false) {
+          return;
+        }
         if (slot.classList.contains("taken")) {
           connectContainer.classList.remove("error")
           // offsetWidth bliver brugt som et slags "buffer", så koden ikke bliver udføret instantly (async?)
@@ -154,7 +160,6 @@ function startGame() {
           connectContainer.classList.add("error")
           return;
         }
-        
     // Grunden til at vi har de usynlige brikker i starten er nemlig derfor. Hvis vi ikke havde dem, vil vi aldrig kunne starte spillet, da de usynlige brikker har classen taken og derfor giver os mulighed for at smide vores brikker ind på brættet.
     // Hvis selve "i + 7 (fordi der er 7 felter på hver kolonne)" (det felt vi klikker på) har classen "taken", og hvis "i" ikke har den, så kører koden. Altså, hvis vores "felt" er "taken", så vi vil vi kun kunne placere en brik over det felt, der er taken.
         if (slots[i + 7].classList.contains('taken') &&!slots[i].classList.contains('taken')) {
@@ -189,7 +194,7 @@ function startGame() {
     let winnerContainer = document.getElementById("winnerContainer");
     let container = document.getElementById("container");
     let restart = document.getElementById("restart");
-    // Et loop der kører igennem og definerer nogle konstanter
+    // Et loop der kører igennem og definerer nogle konstanter som vi bruger til at finde ud af om spilleren har vundet
     for (let y = 0; y < solutions.length; y++) {
       const slot1 = slots[solutions[y][0]];
       const slot2 = slots[solutions[y][1]];
@@ -204,17 +209,19 @@ function startGame() {
         slot4.classList.contains('red')
       )
       {
+        gameRunning = false;
         // Pausen funktionen så den ikke kører det absolut samme sekund man vinder på så man lige kan se boardet (virker ikke super godt)
+        // Stopper timeren
+        timerIsRunning = false;
         setTimeout(() => {
         winnerContainer.style.display = "flex";
         winnerContainer.classList.add("fade");
         winner.style.display = "block";
         winner.innerHTML = `${name1} wins!`;
         container.classList.add("winnerEffect")
-        // Stopper timeren
-        timerIsRunning = false;
         timer.innerHTML = `The game finished in: ${hours} hour(s) ${minutes} minute(s) ${seconds} second(s)`;
-      },1000)}
+      },2000)
+    }
       // Tjek om "gul" har vundet
       if (
         slot1.classList.contains('yellow') &&
@@ -223,17 +230,19 @@ function startGame() {
         slot4.classList.contains('yellow')
       )
       {
+        gameRunning = false;
+        // Stopper timeren
+        timerIsRunning = false;
         setTimeout(() => {
         winnerContainer.style.display = "flex";
         winnerContainer.classList.add("fade");
         winner.style.display = "block";
         winner.innerHTML = `${name2} wins!`;
         container.classList.add("winnerEffect")
-        // Stopper timeren
-        timerIsRunning = false;
         timer.innerHTML = `Final Time: ${hours} hour(s) ${minutes} minute(s) ${seconds} second(s)`;
-      },1000)}
-      restart.addEventListener("click", () => {
+      },2000)
+    }
+        restart.addEventListener("click", () => {
         window.location.reload();
     })
     }
