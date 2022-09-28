@@ -3,7 +3,7 @@ let connect = document.getElementById("connect-container");
 let startGameBtn = document.getElementById("startGameBtn");
 let turnsText = document.getElementById("turns");
 
-// Jeg bruger de her konstanter til at finde ud af hvilken spillers tur det er
+// Jeg bruger det her variabel til at finde ud af hvilken spillers tur det er. "1" er spiller og "2" er spiller 2
 let player = 1;
 
 // Definerer "slot" variablen (brikkerne)
@@ -142,7 +142,7 @@ function startGame() {
       connectContainer.appendChild(divTaken);
     }
     // Definerer runde counteren
-    turnsText.innerHTML = `${turns} rounds played`;
+    turnsText.innerHTML = `${turns} Rounds Played`;
     // Laver et forEach loop der tjekker hvor mange "elementer" der ligger i "slots"-variablet og tilføjer noget funktion til dem
     slots = document.querySelectorAll('.slot, .taken');
     slots.forEach((slot, i) => {
@@ -151,12 +151,12 @@ function startGame() {
           alert("Space is already occupied!")
           return;
         }
-    // Hvis slots "i + 7" har classen "taken", som den nu har (det definerede vi i bræt-genereringsprocessen), og hvis slots har classen taken, så kan vi smide en brik ind i spillet (og ovenpå andre). Grunden til at tallet er "7" er fordi at der er 7 kolonner i et spil "Connect 4"
     // Grunden til at vi har de usynlige brikker i starten er nemlig derfor. Hvis vi ikke havde dem, vil vi aldrig kunne starte spillet, da de usynlige brikker har classen taken og derfor giver os mulighed for at smide vores brikker ind på brættet.
+    // Hvis selve "i + 7 (fordi der er 7 felter på hver kolonne)" (det felt vi klikker på) har classen "taken", og hvis "i" ikke har den, så kører koden. Altså, hvis vores "felt" er "taken", så vi vil vi kun kunne placere en brik over det felt, der er taken.
         if (slots[i + 7].classList.contains('taken') &&!slots[i].classList.contains('taken')) {
         let color;
         if (player === 1) {
-          player = 0;
+          player = 2;
           color = "red";
         }
         else {
@@ -165,7 +165,7 @@ function startGame() {
         }
         slots[i].classList.add(color, "taken");
         turns++;
-        turnsText.innerHTML = `${turns} rounds played`;
+        turnsText.innerHTML = `${turns} Rounds Played`;
         winner()
       }
       else {
@@ -177,8 +177,9 @@ function startGame() {
     // Funktionen der tjekker om en spiller har vundet
     function winner() {
     let winner = document.getElementById("winner");
-    let winnerContainer = document.getElementById("winnerContainer")
+    let winnerContainer = document.getElementById("winnerContainer");
     let container = document.getElementById("container");
+    let restart = document.getElementById("restart");
     // Et loop der kører igennem og definerer nogle konstanter
     for (let y = 0; y < solutions.length; y++) {
       const slot1 = slots[solutions[y][0]];
@@ -200,6 +201,7 @@ function startGame() {
         container.classList.add("winnerEffect")
         // Stopper timeren
         timerIsRunning = false;
+        timer.innerHTML = `The game finished in: ${hours} hour(s) ${minutes} minute(s) ${seconds} second(s)`;
       }
       // Tjek om "gul" har vundet
       if (
@@ -215,8 +217,11 @@ function startGame() {
         container.classList.add("winnerEffect")
         // Stopper timeren
         timerIsRunning = false;
+        timer.innerHTML = `Final Time: ${hours} hour(s) ${minutes} minute(s) ${seconds} second(s)`;
       }
-
+      restart.addEventListener("click", () => {
+        window.location.reload();
+    })
     }
   }
   }
