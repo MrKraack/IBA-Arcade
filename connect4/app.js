@@ -223,7 +223,7 @@ function startGame() {
         winner.style.display = "block";
         winner.innerHTML = `${name1} wins!`;
         container.classList.add("winnerEffect")
-        timer.innerHTML = `The game finished in: ${hours} hour(s) ${minutes} minute(s) ${seconds} second(s)`;
+        timer.innerHTML = `The game finished in: ${hours} hour(s) ${minutes} minute(s) ${seconds - 1} second(s)`;
       },2000)
     }
       // Tjek om "gul" har vundet
@@ -247,7 +247,8 @@ function startGame() {
         winner.style.display = "block";
         winner.innerHTML = `${name2} wins!`;
         container.classList.add("winnerEffect")
-        timer.innerHTML = `Final Time: ${hours} hour(s) ${minutes} minute(s) ${seconds} second(s)`;
+        // Minus 1 sekund da den tæller et sekund efter funktionen er kørt
+        timer.innerHTML = `Final Time: ${hours} hour(s) ${minutes} minute(s) ${seconds - 1} second(s)`;
       },2000)
     }
         restart.addEventListener("click", () => {
