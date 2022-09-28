@@ -125,6 +125,7 @@ function startGame() {
     let preStart = document.getElementById("preStart");
     preStart.classList.add("removeBtnPlayer")
     let connectContainer = document.getElementById("connect-container")
+    connectContainer.style.display = "grid";
 
     for (let i = 0; i < 42; i++) {
       let div = document.createElement("div");

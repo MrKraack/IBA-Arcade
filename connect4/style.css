@@ -38,7 +38,6 @@ h1 {
 
 input {
     font-size: 20px;
-    padding: 5px;
     outline: none;
     color: #253b61;
     margin: 10px 0;
@@ -66,7 +65,7 @@ button {
     font-size: 24px;
     color: white;
     background:#0f1827;
-    border: solid 2px white;
+    border: solid 4px white;
 }
 
 .startGame-btn {
@@ -102,7 +101,7 @@ button {
 
 .connect-container {
     width: 700px;
-    display: grid;
+    display: none;
     justify-content: center;
     align-items: center;
     grid-gap: 20px;
