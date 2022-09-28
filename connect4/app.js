@@ -166,7 +166,7 @@ function startGame() {
         slots[i].classList.add(color, "taken");
         turns++;
         turnsText.innerHTML = `${turns} Rounds Played`;
-        winner()
+        winner();
       }
       else {
         alert("You can't place that here!")
@@ -195,14 +195,17 @@ function startGame() {
         slot4.classList.contains('red')
       )
       {
+        // Pausen funktionen så den ikke kører det absolut samme sekund man vinder på så man lige kan se boardet
+        setTimeout(() => {
         winnerContainer.style.display = "flex";
+        winnerContainer.classList.add("fade");
         winner.style.display = "block";
         winner.innerHTML = `${name1} wins!`;
         container.classList.add("winnerEffect")
         // Stopper timeren
         timerIsRunning = false;
         timer.innerHTML = `The game finished in: ${hours} hour(s) ${minutes} minute(s) ${seconds} second(s)`;
-      }
+      },800)}
       // Tjek om "gul" har vundet
       if (
         slot1.classList.contains('yellow') &&
@@ -211,14 +214,16 @@ function startGame() {
         slot4.classList.contains('yellow')
       )
       {
+        setTimeout(() => {
         winnerContainer.style.display = "flex";
+        winnerContainer.classList.add("fade");
         winner.style.display = "block";
         winner.innerHTML = `${name2} wins!`;
         container.classList.add("winnerEffect")
         // Stopper timeren
         timerIsRunning = false;
         timer.innerHTML = `Final Time: ${hours} hour(s) ${minutes} minute(s) ${seconds} second(s)`;
-      }
+      },800)}
       restart.addEventListener("click", () => {
         window.location.reload();
     })
