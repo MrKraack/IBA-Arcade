@@ -102,8 +102,9 @@ function startGame() {
     let seconds = 0;
     let timer = document.getElementById("timer");
     let timerIsRunning = true;
-    
+    // Funktionen der starter stopuret
     function stopWatch() {
+      // Det her bruger jeg til at kunne stoppe timeren
       if (timerIsRunning == true) {
       timer.innerHTML = `${hours} hour(s) ${minutes} minute(s) ${seconds} second(s)`;
       seconds++;
@@ -178,7 +179,7 @@ function startGame() {
     let winner = document.getElementById("winner");
     let winnerContainer = document.getElementById("winnerContainer")
     let container = document.getElementById("container");
-
+    // Et loop der kører igennem og definerer nogle konstanter
     for (let y = 0; y < solutions.length; y++) {
       const slot1 = slots[solutions[y][0]];
       const slot2 = slots[solutions[y][1]];
@@ -197,6 +198,7 @@ function startGame() {
         winner.style.display = "block";
         winner.innerHTML = `${name1} wins!`;
         container.classList.add("winnerEffect")
+        // Stopper timeren
         timerIsRunning = false;
       }
       // Tjek om "gul" har vundet
@@ -211,6 +213,7 @@ function startGame() {
         winner.style.display = "block";
         winner.innerHTML = `${name2} wins!`;
         container.classList.add("winnerEffect")
+        // Stopper timeren
         timerIsRunning = false;
       }
 
