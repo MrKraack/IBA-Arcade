@@ -4,9 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="hangman.css">
     <title>HangmanGame</title>
 </head>
 <body>
-    
+    <div class="container">
+        <h1 class="container_h1">HANGMAN</h1>
+        <h3 class="container_h2">Hint: <span class="h3_Span">Javascript</h3></span>
+        <div>
+        <p>Gæt ordet</p>
+        <p id="guessWord"> _ _ _ _ </p>
+        </div>
+        <span></span>
+        <div id="keyboard"></div>
+        <span></span>
+        <div class="scoreboard">Forkerte gæt: <span id="attempt">0</span> ud af <span id="maxAttempt"></span></div>
+        <div><button id="resetBtn">Reset</button></div>
+    </div>
+
+    <script src="hangman.js"></script>
 </body>
 </html>
