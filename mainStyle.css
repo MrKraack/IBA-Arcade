@@ -11,6 +11,7 @@
     background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
     /* clip the text through the background */
     background-clip: text;
+    -webkit-background-clip: text;
     /* set the color to transparent, so rainbow comes through */
     color: transparent;
 }
