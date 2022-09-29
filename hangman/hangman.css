@@ -1,0 +1,42 @@
+* {
+    margin: 5px;
+    margin-top: 15px;
+    background-color: black;
+
+}
+.container {
+    display: grid;
+    text-align: center;
+    color: white;
+    font-size: 25px;
+    
+    
+}
+
+h1 {
+    margin-bottom: -10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 60px;
+    color: red;
+}
+
+.h3_Span {
+    color: yellow;
+}
+
+#resetBtn {
+    color: darkred;
+    background-color: white;
+    width: 80px;
+    height: 30px;
+    border: solid red;
+    font-size: 20px;
+}
+
+button {
+    color: white;
+    border: solid white;
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+}

@@ -1,0 +1,32 @@
+Gøremål i HTML:
+1. Overskrift - h1
+2. Tekst "Gæt ordet" - p
+3. _ _ _ _ - gætter ordet -> [Types, operators, functions, DOM , events, conditions, loops, objects, arrays, debuggin, cookies] 11
+4. abcdefg.. "keyboard" 
+5. Gæt ud af mulige - p 
+"reset" knap - btn
+
+
+
+pseudocode for JS:
+VARIABLER:
+1. variable over "liste med ord"
+2. variable for "svar" 
+3. variable for max antal "forkerte"
+4. variable for "forkerte"
+5. variable for antal "gættede"
+
+FUNCTIONER:
+1. function der generer "liste med ord" 
+2. function der generer "keyboard"
+3. function der "gætter ordet"
+4. function der håndtere "forkerte ord"
+5. function der håndtere "rigtige ord"
+6. function der gør at man ikke kan bruge "bogstav" igen
+
+
+GETELEMENTBYIDER:
+1. keyboard
+2. _ _ _ _ _ ordet
+3. forkerte
+4. 
