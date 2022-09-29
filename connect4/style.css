@@ -199,6 +199,9 @@ h2 {
     margin-top: 50px;
 }
 
+.blinkAnim {
+    animation: blink 1s infinite ease-in-out;
+}
 
 /* ANIMATIONS */
 @keyframes disable-pointer-events {
@@ -250,5 +253,17 @@ h2 {
     }
     100% {
         opacity: 1;
+    }
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
     }
 }
