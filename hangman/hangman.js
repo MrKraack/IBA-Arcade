@@ -125,7 +125,7 @@ const hangmanAnswers = [
 
     
     function displayLetter(choseLetter) {
-        console.log("hey")
+        
         // guesses.indexOf(choseLetter) === -1 ? guesses.push(choseLetter) : null;
         // document.getElementById(choseLetter).setAttribute('disabled', true);
         
