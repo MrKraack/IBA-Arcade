@@ -255,8 +255,22 @@ function startGame() {
     }
         // Restart knap der reloader hjemmesiden
         restart.addEventListener("click", () => {
-        window.location.reload();
+        history.go(0);
     })
+    if (turns === 42) {
+      gameRunning = false;
+      // Stopper timeren
+      timerIsRunning = false;
+      setTimeout(() => {
+      winnerContainer.style.display = "flex";
+      winnerContainer.classList.add("fade");
+      winner.style.display = "block";
+      winner.innerHTML = "It's a tie!";
+      container.classList.add("winnerEffect")
+      // Minus 1 sekund da den tæller et sekund efter funktionen er kørt
+      timer.innerHTML = `Final Time: ${hours} hour(s) ${minutes} minute(s) ${seconds - 1} second(s)`;
+    },2000)
+    }
     }
   }
   }
